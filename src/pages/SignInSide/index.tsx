@@ -4,6 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Stack from "@mui/material/Stack";
 
 import { createTheme, ThemeProvider, PaletteMode } from "@mui/material/styles";
+import getSignInSideTheme from "./Theme/getSignInSideTheme";
 
 import Content from "./Content";
 import SignInCard from "./SignInCard";
@@ -11,7 +12,7 @@ import SignInCard from "./SignInCard";
 export default function SignInSide() {
   const [mode, setMode] = React.useState<PaletteMode>("light");
 
-  const defaultTheme = createTheme({ palette: { mode } });
+  const defaultTheme = createTheme(getSignInSideTheme(mode));
 
   React.useEffect(() => {
     const savedMode = localStorage.getItem("themeMode") as PaletteMode | null;
